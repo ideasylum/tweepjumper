@@ -1,0 +1,18 @@
+{
+  "name": "Tweep Jumper",
+  "version": "1.0",
+  "description": "Quick list of twitter users.",
+  "logo": {
+    "16": "tj16.png",
+    "48": "tj48.png",
+    "128": "tj128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://twitter.com/*"],
+      "css": ["the.css"],
+      "js": ["jquery.min.js", "the.js"],
+      "run_at":  "document_idle"
+    }
+  ]
+}

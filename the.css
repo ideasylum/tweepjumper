@@ -1,0 +1,51 @@
+
+#qtl{
+    padding:8px 8px 5px;
+    border-bottom:1px solid #eee;
+    height:58px;
+}
+    .qtl-image{
+        margin:2px;
+        height:48px;width:48px;
+        float:left;
+        position:relative;
+    }
+    .qtl-image .x{
+        display:none;
+        height:12px;width:12px;
+        position:absolute;
+        top:0;right:0;
+        background:#fff;
+        color:#000;
+        cursor:pointer;
+    }
+    #qtl-plus{
+        margin:2px;
+        height:48px;width:48px;
+        float:left;
+    }
+
+#qtl-form{
+    display:block;
+    position:absolute;
+    top:55px;left:110px;
+    background-color:#fff;
+    padding:5px;
+    border:2px solid #eee;
+    border-bottom-left-radius: 5px 5px;
+    border-bottom-right-radius: 5px 5px;
+    border-top-left-radius: 5px 5px;
+    border-top-right-radius: 5px 5px;
+    z-index:500;
+}
+    #qtl-form input[type=button], #qtl-form input[type=submit]{
+        cursor:pointer;
+        width:
+    }
+    #qtl-form input[type=text]{
+        font-size:15px;
+        padding:6px;
+        border:1px solid #eee;
+    }
+
+
