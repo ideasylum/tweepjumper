@@ -45,6 +45,7 @@ $(function(){
                 '<input type="submit" value="Add" class="tweet-button"> '+
                 '<input type="button" value="Cancel" class="tweet-button"> '+
                 '</form>');
+        $('#qtl-form input[type=text]').focus();
     });
     
     $('#qtl-form').live('submit', function(e){

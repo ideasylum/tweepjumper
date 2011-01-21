@@ -10,15 +10,18 @@
         float:left;
         position:relative;
     }
-    .qtl-image .x{
-        display:none;
-        height:12px;width:12px;
-        position:absolute;
-        top:0;right:0;
-        background:#fff;
-        color:#000;
-        cursor:pointer;
-    }
+        .qtl-image .x{
+            display:none;
+            height:12px;width:12px;
+            position:absolute;
+            top:0;right:0;
+            background:#fff;
+            color:#000;
+            cursor:pointer;
+        }
+        .qtl-image .user-profile-link{
+            height:48px;width:48px;
+        }
     #qtl-plus{
         margin:2px;
         height:48px;width:48px;
