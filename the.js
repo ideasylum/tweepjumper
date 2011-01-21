@@ -55,11 +55,7 @@ $(function(){
                 refreshBar();
             }else{
                 console.log('load failed');
-                $('#qtl-form input[type=text]')
-                    .animate({backgroundColor: '#f33'}, 250, function(){ 
-                        $('#qtl-form input[type=text]')
-                            .animate({backgroundColor: '#fff'}, 250);
-                    });
+                $('#qtl-form input[type=text]').css({backgroundColor: '#ffcaca'});
             }
         });
     });
@@ -75,6 +71,7 @@ $(function(){
             $('#qtl-form').submit();
         else
             $(this).val($(this).val()+String.fromCharCode(e.charCode));
+        $('#qtl-form input[type=text]').css({backgroundColor: '#fff'});
     });
     
     $('.qtl-image').live('click', function(e){
