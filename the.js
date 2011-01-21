@@ -77,7 +77,7 @@ $(function(){
     
     $('.qtl-image').live('click', function(e){
         e.preventDefault();
-        window.location.hash = '!/'+$(this).children('img')
+        window.location.hash = '!/'+$(this).children('.user-profile-link')
                 .attr('data-user-username');
     });
     
