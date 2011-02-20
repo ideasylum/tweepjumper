@@ -145,7 +145,7 @@ $(function(){
     //periodically poll the page for new avatars to make draggable
     setInterval(function(){
         //small avatars, such as the ones in the "following" or "followers" lists
-        $('a > img[width="24"]:not([draggable])')
+        $('a > img[width="24"]:not([draggable])').parent()
         .attr('draggable', 'true')
         .bind('dragstart', function(e){
             var dt = e.originalEvent.dataTransfer;
