@@ -27,6 +27,10 @@
         height:48px;width:48px;
         float:left;
     }
+        .qtl-dnd-highlight{
+            border: 2px solid orange !important; /* :O */
+            padding: 6px 6px 4px 6px !important;
+        }
 
 #qtl-form{
     display:block;

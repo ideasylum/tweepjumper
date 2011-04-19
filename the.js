@@ -104,6 +104,85 @@ $(function(){
             checkDisplay();
         }, 100);
     })();
+    
+    //-- Drag and drop --//
+    
+    // Note: Chrome currently just implements this API incorrectly, so there's
+    //       some wonkiness going on with the data we transfer, as well as
+    //       the MIME types we use.  Ideally we'd use "tweep" or similar, but
+    //       we're forced to use one of "text", "text/plain", etc.  We use
+    //       "text/uri-list" because it's relatively obscure, but this is still
+    //       inferior.  Also note that as yet another way to prevent bad data
+    //       from arriving we're temporarily prefixing all tweep names with
+    //       "tweep://", which is then stripped out.
+    //       
+    //       See Chromium issue 31037.
+    
+    $('#qtl, #qtl-plus').live('drop', function(e){
+        //add our tweep
+        var tweep = e.originalEvent.dataTransfer.getData('text/uri-list');
+        if (tweep && tweep.substr(0, 8) == 'tweep://')
+            add(tweep.substr(8), refreshBar);
+        
+        $('#qtl').removeClass('qtl-dnd-highlight');
+        e.preventDefault();
+    }).live('dragenter', function(e){
+        //cancel the event if it's what we're looking for
+        var dt = e.originalEvent.dataTransfer;
+        if (dt.types[0] === 'text/uri-list'){
+            e.preventDefault(); 
+            $('#qtl').addClass('qtl-dnd-highlight');
+        }
+        
+        return true;
+    }).live('dragleave', function(e){
+        $('#qtl').removeClass('qtl-dnd-highlight');
+    }).live('dragover', function(e){
+        $('#qtl').addClass('qtl-dnd-highlight');
+        return false;
+    });
+    
+    //periodically poll the page for new avatars to make draggable
+    setInterval(function(){
+        //small avatars, such as the ones in the "following" or "followers" lists
+        $('a > img[width="24"]:not([draggable])').parent()
+        .attr('draggable', 'true')
+        .bind('dragstart', function(e){
+            var dt = e.originalEvent.dataTransfer;
+            dt.setData('text/uri-list', 'tweep://' + $(e.target).attr('original-title'));
+            return true;
+        });
+        
+        //medium avatars, such as those in the "who to follow" list
+        $('a.user-profile-link.user-thumb > img:not([draggable])')
+        .attr('draggable', 'true')
+        .bind('dragstart', function(e){
+            var dt = e.originalEvent.dataTransfer;
+            dt.setData('text/uri-list', 'tweep://' + $(e.target).attr('alt'));
+            return true;
+        });
+        
+        //tweet avatars
+        $('div.tweet-image > img:not([draggable])')
+        .attr('draggable', 'true')
+        .bind('dragstart', function(e){
+            var dt = e.originalEvent.dataTransfer;
+            dt.setData('text/uri-list', 'tweep://' + 
+                $(e.target).parent().parent().attr('data-screen-name'));
+            return true;
+        });
+        
+        //search results
+        $('div[data-user-id] > img.user-profile-link:not([draggable])')
+        .attr('draggable', 'true')
+        .bind('dragstart', function(e){
+            var dt = e.originalEvent.dataTransfer;
+            dt.setData('text/uri-list', 'tweep://' + $(e.target).attr('alt'));
+            return true;
+        });
+        
+        //todo - "who to follow" list users
+    }, 200);
 });
 
 
