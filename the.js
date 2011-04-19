@@ -24,7 +24,7 @@ $(function(){
     
     var add = function(uname, clbk){
         $.ajax({
-            url: 'http://twitter.com/users/'+uname+'.json', 
+            url: document.location.protocol+'//twitter.com/users/'+uname+'.json', 
             dataType: 'json',
             success: function(resp){
                 var accts = JSON.parse(localStorage.getItem('qtlAccounts')) || {};
