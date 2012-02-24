@@ -1,14 +1,18 @@
 
 #qtl{
-    padding:8px 8px 5px;
-    border-bottom:1px solid #eee;
-    height:58px;
+    box-sizing: border-box;
+    padding: 1px;
+    background-color: white;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    height:56px;
 }
     .qtl-image{
         margin:2px;
         height:48px;width:48px;
         float:left;
         position:relative;
+        cursor: pointer;
     }
         .qtl-image .x{
             display:none;
@@ -29,7 +33,7 @@
     }
         .qtl-dnd-highlight{
             border: 2px solid orange !important; /* :O */
-            padding: 6px 6px 4px 6px !important;
+            padding: 3px !important;
         }
 
 #qtl-form{
