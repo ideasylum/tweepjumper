@@ -33,7 +33,7 @@
     }
         .qtl-dnd-highlight{
             border: 2px solid orange !important; /* :O */
-            padding: 3px !important;
+            padding: 0 !important;
         }
 
 #qtl-form{
